@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Contextual List Example</title>
+<style>
+  .contextual-list {
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 5px;
+    display: none;
+    z-index: 1; /* Ensure it's above other content */
+  }
+
+  .contextual-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contextual-list ul li {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
+  .contextual-list ul li:hover {
+    background-color: #ddd;
+  }
+</style>
+</head>
+<body>
+
+<p>Hover over the links below:</p>
+
+<div id="linkContainer">
+  <a href="#" class="context-link" data-list="list1">Link 1</a>
+  <a href="#" class="context-link" data-list="list2">Link 2</a>
+</div>
+
+<div id="contextualList" class="contextual-list"></div>
+
+<script>
+  const linkContainer = document.getElementById('linkContainer');
+  const contextualList = document.getElementById('contextualList');
+
+  // Sample data for lists
+  const listsData = {
+    list1: ['Item 1', 'Item 2', 'Item 3'],
+    list2: ['Option A', 'Option B', 'Option C']
+  };
+
+  // Event delegation for dynamic content
+  linkContainer.addEventListener('mouseover', function(event) {
+    const target = event.target;
+    if (target.classList.contains('context-link')) {
+      const dataList = target.getAttribute('data-list');
+      const listItems = listsData[dataList];
+      if (listItems) {
+        const listHtml = generateListHtml(listItems);
+        showContextualList(target, listHtml);
+      }
+    }
+  });
+
+  function generateListHtml(items) {
+    return `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+  }
+
+  function showContextualList(target, content) {
+    contextualList.innerHTML = content;
+    contextualList.style.display = 'block';
+    // Position the contextual list below the link
+    contextualList.style.top = `${target.offsetTop + target.offsetHeight}px`;
+    contextualList.style.left = `${target.offsetLeft}px`;
+  }
+
+  linkContainer.addEventListener('mouseout', function() {
+    contextualList.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>

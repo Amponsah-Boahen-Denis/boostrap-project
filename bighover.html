@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuous Text Typing Animation</title>
+<style>
+  .text-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+
+<div class="text-container" id="textContainer">
+  <span id="text"></span><span id="cursor">|</span>
+</div>
+
+<script>
+  const text = "Hello, how are you?";
+  const delay = 100; // milliseconds
+  let index = 0;
+
+  function typeText() {
+    if (index < text.length) {
+      document.getElementById('text').textContent += text[index];
+      index++;
+    } else {
+      document.getElementById('text').textContent = '';
+      index = 0;
+    }
+    setTimeout(typeText, delay);
+  }
+
+  typeText();
+</script>
+
+</body>
+</html>

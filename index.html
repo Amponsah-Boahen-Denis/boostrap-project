@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuous Text Typing Animation</title>
+<style>
+  .text-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+
+<div class="text-container" id="textContainer">
+  <span id="text"></span><span id="cursor">|</span>
+</div>
+
+<script>
+  const text = "Hello, how are you?";
+  const delay = 100; // milliseconds
+  let index = 0;
+
+  function typeText() {
+    if (index < text.length) {
+      document.getElementById('text').textContent += text[index];
+      index++;
+    } else {
+      document.getElementById('text').textContent = '';
+      index = 0;
+    }
+    setTimeout(typeText, delay);
+  }
+
+  typeText();
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Green Bar Menu with Bootstrap</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  .green-bar {
+    background-color: #4CAF50; /* Green background color */
+    overflow: hidden; /* Hide overflow content */
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align items to the right */
+    padding: 10px; /* Padding around links */
+  }
+
+  .green-bar a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 10px; /* Space between links */
+  }
+
+  /* Adjustments for smaller screens */
+  @media (max-width: 767px) {
+    .green-bar {
+      flex-direction: column; /* Stack links vertically */
+      align-items: flex-end; /* Align items to the right */
+      padding: 0;
+    }
+    .green-bar a {
+      display: block; /* Display links as block elements */
+      padding: 10px 20px; /* Padding around links */
+      text-align: right; /* Align text to the right */
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="green-bar d-md-none"> <!-- Hidden on medium and larger screens -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#greenBarMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="greenBarMenu">
+    <a href="#" class="nav-link">softsheba.com</a>
+    <a href="#" class="nav-link">Service</a>
+    <a href="#" class="nav-link">Software</a>
+    <a href="#" class="nav-link">More</a>
+    <a href="#" class="nav-link">Become Seller</a>
+    <a href="#" class="nav-link">Shop</a>
+    <a href="#" class="nav-link">Help Center</a>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+<!--  -->
